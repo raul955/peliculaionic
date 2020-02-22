@@ -13,6 +13,7 @@ export class PeliDetailsPage implements OnInit {
   constructor(private peliService: PeliService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    //al entrar al detalle de la pelicula pilla el id y te muestra la vista correspondiente
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.peliService.getDetails(id).subscribe(result => this.content = result);
   }

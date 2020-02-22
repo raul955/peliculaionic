@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
+      <!--Boton que lleva a la pagina principal-->
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-title>{{content?.Title}}</ion-title>
@@ -9,7 +10,9 @@
 
 <ion-content padding>
   <ion-card *ngIf="content">
+    <!-- card visible si el getDetails no es null (si hay resultado)-->
     <ion-card-header text-center>
+      <!--Header que guarda algunas propiedades de la API-->
       <ion-card-title>{{content?.Title}}</ion-card-title>
       <ion-card-subtitle>
         {{content.Year}} {{content.Language}}

@@ -18,6 +18,7 @@ export class PelisPage implements OnInit {
   ngOnInit() {
   }
 
+  //metodo para buscar elementos con los parámetos term y tipe utiliza el metodo searchMovies
   searchChanged(e): void {
     this.results = this.peliService.searchMovies(this.term, this.type);
   }

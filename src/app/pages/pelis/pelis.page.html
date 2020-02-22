@@ -9,6 +9,7 @@
   <ion-item>
     <ion-label>Select search type</ion-label>
     <ion-select [(ngModel)]="type" (ionChange)="searchChanged($event)">
+      <!--Busca en la API una coincidencia con el titulo insertado + el tipo de contenido-->
       <ion-select-option seleted="true" value="">All</ion-select-option>
       <ion-select-option value="movie">Movies</ion-select-option>
       <ion-select-option value="series">Series</ion-select-option>
@@ -19,12 +20,14 @@
   <ion-list>
     <ion-item button *ngFor="let peli of (results | async)" [routerLink]="['/', 'peli', peli.imdbID]">
       <ion-avatar slot="start">
+        <!--Con este ngIf lo que hace es ignorar las búsquedas in carátula-->
         <img src="{{peli.Poster}}" alt="{{peli.Title}}" *ngIf="peli.Poster != 'N/A'">
       </ion-avatar>
       <ion-label text-wrap>
         <h3>{{peli.Title}}</h3>
         {{peli.Year}}
       </ion-label>
+      <!--Con este ngIf lo que hace es seleccionar la miniatura de serie o pelicula..-->
       <ion-icon slot="end" *ngIf="peli.Type === 'movie'" name="videocam"></ion-icon>
       <ion-icon slot="end" *ngIf="peli.Type === 'series'" name="tv"></ion-icon>
       <ion-icon slot="end" *ngIf="peli.Type === 'episode'" name="tablet-portrait"></ion-icon>

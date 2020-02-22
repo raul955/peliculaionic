@@ -9,7 +9,7 @@ import { IPelis } from '../model/IPelis.interface';
 })
 export class PeliService {
   private url: string = '';
-  private apiKey: string = '418162be';
+  private apiKey: string = '30ca590c';
 
   constructor(private http: HttpClient) { }
 

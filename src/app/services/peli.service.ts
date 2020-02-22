@@ -13,6 +13,7 @@ export class PeliService {
 
   constructor(private http: HttpClient) { }
 
+  //busca coincidencias con el texto y el tipo introducido a traves de la url
   searchMovies(title: string, type: string) {
     this.url = `https://www.omdbapi.com/?s=${encodeURI(title)}&type=${type}&apikey=${this.apiKey}`;
     return this.http.get<IPelis>(this.url).pipe(map(results => results['Search']));
